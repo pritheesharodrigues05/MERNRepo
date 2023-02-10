@@ -4,5 +4,6 @@ const express = require('express')
 const port= 5000;
 const app= express()
 
+// app.listen(port, 'localhost', ()=> console.log(`server started on port number ${port}`) );
 app.listen(port, 'localhost', ()=> console.log(`server started on port number ${port}`) );
 
