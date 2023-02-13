@@ -15,7 +15,11 @@ connectDB()
 
 app.use(express.urlencoded({extended:false}))
 
+//api for goals
 app.use('/api/goals', require('./routes/goalRouter'))
+
+//api for users
+app.use('/api/users', require('./routes/userRoutes'))
 
 app.use(errorHandler)
 
