@@ -2,7 +2,7 @@ const mongoose= require('mongoose');
 
 const userSchema= mongoose.Schema({
    
-    name:{
+    username:{
     type:String,
     required:[true, 'Please add  a name'],
     unique:true
@@ -27,4 +27,4 @@ const userSchema= mongoose.Schema({
  }
 )
 
-module.exports= mongoose.model('user', userSchema)
+module.exports= mongoose.model('users', userSchema)
