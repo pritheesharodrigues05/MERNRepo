@@ -16,9 +16,9 @@ const getUserByEmail = expressAsyncHandler(async(req, res)=>{
 
    const email = req.body;
    
-   const loggedInUser=await userModel.findOne(email);
+   const userByEmail=await userModel.findOne(email);
    
-   if(!loggedInUser)
+   if(!userByEmail)
     {
     res.status(400)
     throw new Error('USer not found')
@@ -26,18 +26,27 @@ const getUserByEmail = expressAsyncHandler(async(req, res)=>{
     
     res.json({
 
-    id: loggedInUser.id,
+    id: userByEmail.id,
     
-    email: loggedInUser.email,
+    email: userByEmail.email,
     
-    username : loggedInUser.username
+    username : userByEmail.username
 
 
     })    // res.status(200).json({user});
 }
 )
+
+
+const getLoggedInUser = async() =>{
+
+
+
+
+}
 module.exports= {
 
-    fetchUser, getUserByEmail
+    fetchUser, getUserByEmail,
+    getLoggedInUser
 
 } 
