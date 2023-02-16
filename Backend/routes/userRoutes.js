@@ -2,10 +2,11 @@ const express = require('express')
 
 const router = express.Router()
 
-const  { registerUsers , loginUsers, fecthUserName} = require('../controllers/userController')
+const passport =require("passport")
 
-router.route('/').post(registerUsers)
-router.route('/login').post(loginUsers)
-router.route('/getUser').get(fecthUserName)
+const  fetchUser = require('../controllers/userController');
+
+
+router.route('/getUserDetails', passport.authenticate("jwt", {session:false, successFlash : "Sucessfuly authorized"}), {session:false}).get(fetchUser);
 
 module.exports=  router
