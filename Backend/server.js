@@ -31,7 +31,7 @@ app.use('/api/auth', require('./routes/authRouter'))
 
 //api for users
 // passport.authenticate("jwt", {session:false, successFlash : "Sucessfuly authorized"}),
-app.use('/api/users',  require('./routes/userRoutes'))
+app.use('/api/users', passport.authenticate("jwt", {session:false}), require('./routes/userRoutes'))
 
 app.use(errorHandler)
 

@@ -15,7 +15,7 @@ module.exports = (passport)=>{
      
         new jwtStrategy(opt, async(jwtPayload,done) =>{
          
-         var user = await userModel.finBdyId(jwtPayload.id);
+        var user = await userModel.findById(jwtPayload.id);
          try {
             if(user) {
           
@@ -56,22 +56,6 @@ module.exports = (passport)=>{
 
    
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
