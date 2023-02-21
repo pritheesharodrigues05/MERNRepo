@@ -4,6 +4,10 @@ const jsonwebtoken = require('jsonwebtoken')
 
 const userModel = require("../models/userModel")
 
+
+const emailnotification =require('../config/emailNotifications')
+  
+
 const bcryptpassword = require('bcryptjs')
 
 require("dotenv").config();
@@ -24,6 +28,7 @@ const registerUsers = expressAsyncHandler(async (req, res) => {
 
     //chec if user exists
     const userExists = await userModel.findOne({ email });
+    
     console.log("if the particular user exists on this email Id", userExists)
 
     if (userExists) {
@@ -40,8 +45,6 @@ const registerUsers = expressAsyncHandler(async (req, res) => {
 
     console.log("hashed password", hashedPassword);
 
-
-
     const User = await userModel.create({
 
         username,
@@ -52,6 +55,10 @@ const registerUsers = expressAsyncHandler(async (req, res) => {
 
     console.log("User created" + User.username, User.email, User.password)
 
+    const userMail=  await emailnotification.sendEmail(User.email)
+
+
+    console.log("-----Contoller ->Registration ---->sending email to registered users" + userMail)
     // console.log("Decrypteed password", decrypt(password))
 
 

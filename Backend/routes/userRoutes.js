@@ -14,4 +14,5 @@ router.route('/getUserbyEmail').get(getUserByEmail);
 
 router.route('/getloggedInUser').get(getLoggedInUser);
 
+
 module.exports=  router

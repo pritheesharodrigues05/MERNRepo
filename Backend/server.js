@@ -4,6 +4,7 @@ const { errorHandler } = require('./middleware/ErrormiddleWare');
 const connectDB = require('./config/db');
 const passport= require("passport")
 const middleWareConfig= require('./middleware/authmidlleware')
+
 // const  dotenv = require('dotenv').config()
 // const port = process.dotenv.PORT
 const port= 5000;
@@ -11,6 +12,7 @@ const app= express()
 
 
 app.use(express.json())
+
 
 connectDB()
 
