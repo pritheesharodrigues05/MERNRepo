@@ -2,11 +2,11 @@ const nodeMailer = require('nodemailer');
 
 const emailTransport = nodeMailer.createTransport({
 
-    port: 465,
+    port: 587,
     host:  "smtp.ethereal.email",
     auth: {
-       user: 'pedro.boehm@ethereal.email' , 
-       pass: 's9vS5nVdb4gB471fGg' ,
+       user: 'leif.frami31@ethereal.email' , 
+       pass: '5Hkyx5nRzc3drxdmqy' ,
 
     },
 //   secure: true,
